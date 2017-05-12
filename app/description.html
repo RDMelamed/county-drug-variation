@@ -1,0 +1,53 @@
+
+<style>
+h1 {
+    margin: 1em 0 0 0;
+    color: #2e484c;
+    font-family: 'Julius Sans One', sans-serif;
+    font-size: 1.5em;
+}
+a:link {
+    font-weight: bold;
+    text-decoration: none;
+    color: #0d8ba1;
+}
+a:visited {
+    font-weight: bold;
+    text-decoration: none;
+    color: #1a5952;
+}
+a:hover, a:focus, a:active {
+    text-decoration: underline;
+    color: #9685BA;
+}
+p {
+    font: "Libre Baskerville", sans-serif;
+    text-align: left;
+    text-justify: inter-word;
+    width: 90%;
+    max-width: 800;
+}
+</style>
+
+<h1>Exploring county-drug variation</h1>
+
+<p>
+This web app visualizes the principal components of the drug-county variation matrix, described in the <a href="hhttp://shiny.rstudio.com/gallery/movie-explorer.html">preprint</a>.  Please check out <a href="http://shiny.rstudio.com/gallery/movie-explorer.html">this page </a> for a layperson's introduction to the idea.
+</p>
+
+<p>
+Choose a component below to visualize the projection of each county on the map to the right. Then, the figure below, left, shows how different demographic characteristics (on the left side) and drug characteristics (on the right side) are correlated with the chosen component. You can mouse over the points,
+or zoom in to get more information.
+</p>
+
+<p>
+For example, when you first open the app, component "Southeast" is chosen. The most correlated demographic characteristic with Southeast is Life expectancy.  The relationship between Southeast and Life expectancy is shown the the first scatter plot on the bottom
+right-- each point is a county, and the county projection is compared to the county life expectancy. The most correlated drug class is "Cell Stim/Proliferant S/MM", containing acne drugs such as Differin and Tazorac. The two scatter plots compare the county's use of the chosen drug class to the
+county's projection, and to the demographic variable.
+</p>
+
+<p>
+Please give the plots 30 seconds to update!
+</p>
+
+<br />

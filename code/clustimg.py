@@ -105,4 +105,6 @@ def img_only(axmatrix, fig, class_cor, colormap_string, cmin, cmax,
     axcbar.set_yticks([])
     #axcbar.set_axes([])
     axcbar.set_axis_off()
-    cbar = fig.colorbar(cax, ax=axcbar) #rientation='horizontal',
+    cbar = fig.colorbar(cax, ax=axcbar,ticks=[round(i,2) for i in np.linspace(cmin,cmax,7)]) #rientation='horizontal',
+
+    

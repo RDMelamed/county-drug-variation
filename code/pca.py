@@ -4,9 +4,12 @@ from itertools import chain
 import pdb
 from scipy import stats
 from sklearn.utils.extmath import randomized_svd
-def do_svd(devin, demo0, fda_nadac, c2d):
+
+    
+def svd_correlations(devin, demo0, fda_nadac, c2d):
     ### Run PCA
     dev = (devin - devin.mean(axis=0))/devin.std(axis=0)
+    
     U, Sigma, VT = randomized_svd(dev.transpose(),
                                       n_components=8,
                                             n_iter=7,
@@ -46,7 +49,7 @@ def do_svd(devin, demo0, fda_nadac, c2d):
     totcol = list(proj.columns) + list(demo0.columns)
     ret['dem_v'] = pd.DataFrame(stats.spearmanr(proj,demo0).correlation,
                       index = totcol, columns = totcol).loc[demo0.columns, proj.columns]
-    return ret
+    return ret, U, Sigma, VT
 '''
     svdhypbeta = cca_viz.ccaize4(dev50.loc[demo0.index,drugset], 
                              demo0, svd50,fda_nadac, charDem.loc[:,charsel],

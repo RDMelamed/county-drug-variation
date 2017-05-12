@@ -1,0 +1,98 @@
+demblue	68	69	Poor or fair health	fill_color=lgreen,color=lgreen
+demblue	67	68	Physical inactivity	fill_color=lgreen,color=lgreen
+demblue	66	67	Health care costs	fill_color=lgreen,color=lgreen
+demblue	66	67	Premature age-adjusted mortality	fill_color=lgreen,color=lgreen
+demblue	65	66	Low birthweight	fill_color=lgreen,color=lgreen
+demblue	62	63	Premature death	fill_color=lgreen,color=lgreen
+demblue	62	63	Teen births	fill_color=lgreen,color=lgreen
+demblue	59	60	Diabetes	fill_color=lgreen,color=lgreen
+demblue	56	57	Insufficient sleep	fill_color=lgreen,color=lgreen
+demblue	54	55	Uninsured	fill_color=lgreen,color=lgreen
+demblue	53	54	Poor physical health days	fill_color=lgreen,color=lgreen
+demblue	53	54	Food insecurity	fill_color=lgreen,color=lgreen
+demblue	53	54	non-Hispanic African American	fill_color=lpurple,color=lpurple
+demblue	52	53	Preventable hospital stays	fill_color=lgreen,color=lgreen
+demblue	51	52	Children in poverty	fill_color=lgreen,color=lgreen
+demblue	50	51	Motor vehicle crash deaths	fill_color=lgreen,color=lgreen
+demblue	49	50	Adult obesity	fill_color=lgreen,color=lgreen
+demblue	48	49	Adult smoking	fill_color=lgreen,color=lgreen
+demblue	45	46	Poor mental health days	fill_color=lgreen,color=lgreen
+demblue	44	45	3-Yr Homicides&Legal Interventn	fill_color=lgreen,color=lgreen
+demblue	41	42	Driving alone to work	fill_color=lgrey,color=lgrey
+demblue	39	40	Children in single-parent households	fill_color=lgreen,color=lgreen
+demblue	38	39	Income inequality	fill_color=lgreen,color=lgreen
+demblue	32	33	heart_death	fill_color=lgrey,color=lgrey
+demblue	31	32	Sexually transmitted infections	fill_color=lpurple,color=lpurple
+demblue	31	32	Births	fill_color=lpurple,color=lpurple
+demblue	28	29	Injury deaths	fill_color=lgreen,color=lgreen
+demblue	27	28	Unemployment	fill_color=lgreen,color=lgreen
+demblue	26	27	female	fill_color=lpurple,color=lpurple
+demblue	26	27	Frequent physical distress	fill_color=lgreen,color=lgreen
+demblue	24	25	below 18 years of age	fill_color=lpurple,color=lpurple
+demblue	21	22	hypertensive_heart_death	fill_color=lpurple,color=lpurple
+demblue	18	19	Limited access to healthy foods	fill_color=lpurple,color=lpurple
+demred	24	25	Asian	fill_color=lred,color=lred
+demred	26	27	Tot Active M.D.s Non-Fed & Fed	fill_color=lred,color=lred
+demred	28	29	Diabetic screening	fill_color=lorange,color=lorange
+demred	32	33	Access to exercise opportunities	fill_color=lred,color=lred
+demred	33	34	non-Hispanic White	fill_color=lgrey,color=lgrey
+demred	33	34	suicide_death	fill_color=lblue,color=lblue
+demred	35	36	Mammography screening	fill_color=lorange,color=lorange
+demred	36	37	Primary care physicians	fill_color=lred,color=lred
+demred	41	42	Mental health providers	fill_color=lred,color=lred
+demred	43	44	Dentists	fill_color=lred,color=lred
+demred	45	46	Median household income	fill_color=lorange,color=lorange
+demred	47	48	Some college	fill_color=lorange,color=lorange
+demred	50	51	Food environment index	fill_color=lorange,color=lorange
+demred	60	61	neoplasm_death	fill_color=lorange,color=lorange
+demred	61	62	Excessive drinking	fill_color=lorange,color=lorange
+demred	69	70	life expectancy	fill_color=lorange,color=lorange
+drugblue	87	88	Allergy/Cold	fill_color=dpurple,color=dpurple
+drugblue	59	60	Analg/Antipyr, Salicylates	fill_color=dgrey,color=dgrey
+drugblue	54	55	Cardiac 	fill_color=dblue,color=dblue
+drugblue	51	52	Analg/Antipyr,Nonstr/Antiinflm	fill_color=dgrey,color=dgrey
+drugblue	45	46	Antidiarrhea	fill_color=ylgnbu-6-seq-3,color=ylgnbu-6-seq-3
+drugblue	44	45	Muscle Relax, Skeletal Central	
+drugblue	43	44	Cardiac, Calcium Channel	fill_color=dblue,color=dblue
+drugblue	42	43	Antiallergic	fill_color=dpurple,color=dpurple
+drugblue	42	43	Antibiot, Cephalosporin & Rel.	
+drugblue	41	42	Cardiac, ACE Inhibitors	fill_color=dblue,color=dblue
+drugblue	40	41	Diuretics, Loop Diuretics	fill_color=dblue,color=dblue
+drugblue	40	41	Antichol/Antimuscarin/Antispas	fill_color=ylgnbu-6-seq-3,color=ylgnbu-6-seq-3
+drugblue	38	39	Urinary Anti-Infectives	
+drugblue	37	38	Antidiabetic , 	fill_color=dgreen,color=dgreen
+drugblue	36	37	Multivit Prep, Multivit Plain	
+drugblue	34	35	Antihyperlipidemic 	
+drugblue	33	34	Repl Preps, Potassium Supp	fill_color=dblue,color=dblue
+drugblue	32	33	Hypotensive	fill_color=dblue,color=dblue
+drugblue	28	29	Cardiac, Beta Blockers	fill_color=dblue,color=dblue
+drugblue	25	26	Gastrointestinal  	fill_color=ylgnbu-6-seq-3,color=ylgnbu-6-seq-3
+drugblue	24	25	Antidiabetic Ag, Sulfonylureas	fill_color=dgreen,color=dgreen
+drugblue	23	24	Repl Preps, Phosphorus Preps	
+drugblue	23	24	Cath&Lax, Laxatives, Saline	
+drugblue	22	23	Antivirals	
+drugblue	20	21	Antiinf S/MM,Antifungal & Comb	
+drugblue	20	21	release_date	
+drugblue	19	20	Antiplatelet	
+drugblue	19	20	Antituberculosis	
+drugblue	19	20	Diuretics, Thiazides & Related	fill_color=dblue,color=dblue
+drugblue	18	19	Leukotriene Modifiers	fill_color=dpurple,color=dpurple
+drugred	18	19	Thy/Antithy, Thyroid/Hormones	
+drugred	21	22	Cholelitholytic	
+drugred	21	22	Antimalarial	
+drugred	22	23	Diuretic, Carb Anhydrase Inhib	
+drugred	22	23	Vascular 5HT1 Agonist	
+drugred	22	23	Contraceptive, Oral Comb	fill_color=rdpu-3-seq-3,color=rdpu-3-seq-3
+drugred	24	25	Dental	
+drugred	29	30	Psychother, Antidepressants	fill_color=dred,color=dred
+drugred	29	30	Antimanic	fill_color=dred,color=dred
+drugred	30	31	Antineoplastic	
+drugred	33	34	Ovulation Stimulants	fill_color=rdpu-3-seq-3,color=rdpu-3-seq-3
+drugred	33	34	Coag/Anticoag, Anticoagulants	
+drugred	39	40	S/MM , Astringents	fill_color=dorange,color=dorange
+drugred	40	41	Autonomic, Nicotine Preps	
+drugred	41	42	Fluoride Preparations	
+drugred	44	45	Antiemetics	
+drugred	45	46	Psychother,Tranq/Antipsychotic	fill_color=dred,color=dred
+drugred	49	50	Cell Stim/Proliferant S/MM	fill_color=dorange,color=dorange
+drugred	49	50	Gonadotropins	fill_color=rdpu-3-seq-3,color=rdpu-3-seq-3

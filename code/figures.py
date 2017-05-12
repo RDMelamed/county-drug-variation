@@ -4,7 +4,8 @@ import pandas as pd
 from itertools import chain
 import pdb
 from scipy import stats
-
+import matplotlib.gridspec as gridspec
+from clean import *
 def bipartite_unlabeled(dim, cutdim, cutcor, cc,drugcolors,demcolors, c2d=None):
     f,ax = plt.subplots(1)
     f.set_size_inches(15,12)
@@ -72,9 +73,6 @@ def xy(x,y,ax,highlight=None):
     #ax.xaxis.major.locator.set_params(nticks=4) 
     #ax.locator_params(nticks=4) #,axis='x')
     ax.set_title('cor={:1.2f}'.format(stats.spearmanr(x['dat'],y['dat']).correlation))
-
-def mystrip(i):
-    return i.replace('Agents','').replace('Value','').replace('Percent of population','').replace('that is ','').replace('brandred','brand').replace('startdate_norm','release_date').replace('nadac','nadac ($)').strip().replace('otcred','OTC').replace('2010','').replace('2011','').replace('Female','F').replace('Male','M').replace('prevalence','').replace('(years)','').replace('(%)','').replace(', *','').replace('Native Hawaiian or Other Pacific Islander','Hawaiian/Pacific Islander').replace('Drugs','').replace('Drug','').replace('Misc','')
 
 def circos_files(dim, cutdim, cutcor, cc,democlus, drugcolor,redname,bluename, nm=None, c2d=None):
     demcor = 'dem_v'
@@ -149,6 +147,65 @@ def img_only(axmatrix, fig, class_cor, colormap_string, cmin, cmax,
     axcbar.set_axis_off()
     cbar = fig.colorbar(cax, ax=axcbar) #rientation='horizontal',def
 
+
+
+def rangeplots(scores, perc, classn, ax,c2d, dsn, fda_nadac, dorank=False,brand='brandred',tit=None):
+    hi = scores > perc[1]
+    drugs = classn 
+
+    if not tit:
+        drugs = c2d[classn]
+        tit = classn
+    ceph = fda_nadac.loc[drugs,['nadac','brandred','unit']].sort_values(brand)
+    lov, medv, hiv = zip(*tuple([np.percentile(dsn.loc[hi,c],[25,50,75]) for c in ceph.index]))
+    
+    xval = ceph[brand]
+    if dorank:
+        xval = range(ceph.shape[0])
+    
+    ax.fill_between(xval, lov, hiv, facecolor='red', linewidth=0, alpha=0.2)
+    ax.plot(xval,medv,color='r',marker='o',markeredgewidth=0,markersize=4)
+
+    hi = scores < perc[0]
+    #ceph = fda_nadac.loc[c2d[classn],['nadac','brandred','unit']].sort_values('brandred')
+    lov, medv, hiv = zip(*tuple([np.percentile(dsn.loc[hi,c],[25,50,75]) for c in ceph.index]))
+    ax.fill_between(xval, lov, hiv, facecolor='blue', linewidth=0, alpha=0.2)
+    ax.plot(xval,medv,color='b',marker='o',markeredgewidth=0,markersize=4)
+    #ax.set_xticks(xval)
+    #ax.set_xticklabels(ceph.index,rotation=-90,ha='left')
+    ax.locator_params(axis='y',tight=True, nbins=4)
+    ax.locator_params(axis='x',tight=True, nbins=5)
+    #ax.set_xlabel('fraction brand' if brand=='brandred' else 'NADAC ($)')
+    if brand=='nadac':
+        ax.set_xscale('log')
+    #ax.set_ylabel('drug deviance')
+    ax.set_title(tit, fontsize=8)
+    ax.set_xlim(-.05,1.05)
+    ax.spines['right'].set_visible(False)
+    ax.spines['top'].set_visible(False)
+
+def rangePair(scores, druglo, drughi, ax,dsn, tit=None, rank=False):
+    qcuts = (0,5,15,20,30,70,80,90,95,100)
+    prc = np.percentile(scores,qcuts)
+    lov, medv, hiv = zip(*tuple([np.percentile(dsn.loc[(scores > prc[c]) & (scores < prc[c +1]),druglo],[25,50,75]) 
+                                 for c in range(len(prc)-1)]))    
+    xval = prc[:-1]
+    if rank:
+        xval = qcuts[:-1]
+    ax.fill_between(xval, lov, hiv, facecolor='c', linewidth=0, alpha=0.2,label='_nolegend_')
+    ax.plot(xval,medv,color='c',marker='o',markeredgewidth=0,markersize=4)
+    lov, medv, hiv = zip(*tuple([np.percentile(dsn.loc[(scores > prc[c]) & (scores < prc[c +1]),drughi],[25,50,75]) 
+                                 for c in range(len(prc)-1)]))    
+    ax.fill_between(xval, lov, hiv, facecolor='m', linewidth=0, alpha=0.2,label='_nolegend_')
+    ax.plot(xval,medv,color='m',marker='o',markeredgewidth=0,markersize=4)
+    ax.locator_params(axis='y',tight=True, nbins=3)
+    ax.locator_params(axis='x',tight=True, nbins=5)
+    #ax.set_xlabel('fraction brand' if brand=='brandred' else 'NADAC ($)')
+    ax.spines['right'].set_visible(False)
+    ax.spines['top'].set_visible(False)
+    ax.set_xlim(xval[0]*1.1,xval[-1]*1.1)
+    return xval 
+    
 def mycont(x, y, scores, xryr, rl, bl):
     perc = np.percentile(scores,[10,90])
     sel = (scores < perc[0]) | (scores > perc[1])
@@ -254,3 +311,46 @@ def make_compress(unstacked, cuts, dimname):
     unstacked = unstacked.reorder_levels(['year','age','visits','nbin','type'])
     unstacked = unstacked.sort_index() 
     return unstacked
+
+
+def price_cor_cor(drugs,dim, svddfilt, fda_nadac, tomap, dsn):
+    gs = gridspec.GridSpec(2, len(drugs))
+    brands = fda_nadac.loc[drugs,'brandred'].sort_values()
+    highlight = {'#ff6666':tomap==1, #41=or 08=co
+                 '#8080ff':tomap==-1}
+    v1 = {'lab':dim, 
+         'dat':svddfilt['xscores'][dim]}
+
+    for (i, d) in enumerate(brands.index):
+        axi = plt.subplot(gs[0,i])
+        if i == len(brands)-1:
+            xy(v1, {'lab':d[:15], 
+                     'dat':dsn[d]}, axi ,highlight)
+        else:
+            xy(v1, {'lab':d[:15], 
+                     'dat':dsn[d]}, axi)            
+        axi.spines['right'].set_visible(False)
+        axi.spines['top'].set_visible(False)
+        axi.set_xticks([-9,9])
+        axi.set_xlabel('')
+    f = plt.gcf()
+    f.set_size_inches(1.3*len(drugs),3)
+    #.f.tight_layout(True)
+    plt.tight_layout()
+    #ax = plt.subplot(gs[0, 0])
+    axbottom =plt.subplot(gs[1,0:])
+    corval = svddfilt['drugAll_u'].loc[brands.index,dim]
+    axbottom.plot(range(len(drugs)), corval,marker='o')
+    axbottom.set_ylabel('Urban correlation',color='b')
+    axbottom.tick_params('y',color='b')
+    axb2 = axbottom.twinx()
+    axb2.plot(range(len(drugs)), brands,color='g',marker='o')
+    axb2.tick_params('y',color='g')
+    axb2.set_ylabel('fraction brand',color='g')
+    axbottom.set_xlim(-.2,len(drugs) - .8)
+    axbottom.set_ylim(corval.min() -.02, corval.max() + .02 )#-.5,.12)
+    #axb2.set_ylim(0,1.05)
+    axb2.set_ylim(brands.min() - .05,brands.max() + .05)
+    axbottom.set_xticks(range(len(drugs)))
+    axbottom.set_xticklabels(list(brands.index),rotation=-10,ha='left')
+    return f

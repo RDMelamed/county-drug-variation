@@ -1,0 +1,4 @@
+chr	-	drugred	drugs-North/West	17	50	vlred
+chr	-	drugblue	drugs-Southeast	17	88	vlblue
+chr	-	demred	demographics-North/West	17	70	vlred
+chr	-	demblue	demographics-Southeast	17	69	vlblue

@@ -1,0 +1,796 @@
+((dp0
+S'ASH, Benzodiazepines'
+p1
+S'dred'
+p2
+sS'Antidiabetic Ag, Sulfonylureas'
+p3
+S'dgreen'
+p4
+sS'Cardiac, Calcium Channel'
+p5
+S'dblue'
+p6
+sS'Keratolytic Agents S/MM'
+p7
+S'dorange'
+p8
+sS'Psychother, Antidepressants'
+p9
+g2
+sS'Analg/Antipyr,Nonstr/Antiinflm'
+p10
+S'dgrey'
+p11
+sS'Psychother,Tranq/Antipsychotic'
+p12
+g2
+sS'S/MM Misc, Astringents'
+p13
+g8
+sS'Cardiac, Beta Blockers'
+p14
+g6
+sS'Gonadotropins'
+p15
+S'rdpu-3-seq-3'
+p16
+sS'Antimanic Agents'
+p17
+g2
+sS'Repl Preps, Potassium Supp'
+p18
+g6
+sS'Ovulation Stimulants'
+p19
+g16
+sS'Antichol/Antimuscarin/Antispas'
+p20
+S'ylgnbu-6-seq-3'
+p21
+sS'Cardiac, ACE Inhibitors'
+p22
+g6
+sS'Cardiac Drugs'
+p23
+g6
+sS'Misc Therapeutic Agents'
+p24
+g6
+sS'Gastrointestinal Drug Misc'
+p25
+g21
+sS'Keratoplastic Agents S/MM'
+p26
+g8
+sS'Leukotriene Modifiers'
+p27
+S'dpurple'
+p28
+sS'Antidiabetic Agents, Misc'
+p29
+g4
+sS'Diuretics, Loop Diuretics'
+p30
+g6
+sS'Hypotensive Agents'
+p31
+g6
+sS'Antidiarrhea Agents'
+p32
+g21
+sS'Cell Stim/Proliferant S/MM'
+p33
+g8
+sS'Antiallergic Agents'
+p34
+g28
+sS'Contraceptive, Oral Comb'
+p35
+g16
+sS'Antitussives/Cold Comb'
+p36
+g28
+sS'Diuretics, Potassium-Sparing'
+p37
+g6
+sS'Eye/Ear/Nose/Throat Misc'
+p38
+g6
+sS'Analg/Antipyr, Salicylates'
+p39
+g11
+sS'Sympathomimetic Agents'
+p40
+g28
+sS'Diuretics, Thiazides & Related'
+p41
+g6
+s(dp42
+g1
+cnumpy.core.multiarray
+_reconstruct
+p43
+(cnumpy
+ndarray
+p44
+(I0
+tp45
+S'b'
+p46
+tp47
+Rp48
+(I1
+(I3
+tp49
+cnumpy
+dtype
+p50
+(S'f8'
+p51
+I0
+I1
+tp52
+Rp53
+(I3
+S'<'
+p54
+NNNI-1
+I-1
+I0
+tp55
+bI00
+S'\x00\x00\x00\x00\x00\xe0\xed?\x00\x00\x00\x00\x00\x80\xcd?\x00\x00\x00\x00\x00\x00\xc6?'
+p56
+tp57
+bsg3
+g43
+(g44
+(I0
+tp58
+g46
+tp59
+Rp60
+(I1
+(I3
+tp61
+g53
+I00
+S'\x00\x00\x00\x00\x00@\xd0?\x00\x00\x00\x00\x00`\xe5?\x00\x00\x00\x00\x00@\xd7?'
+p62
+tp63
+bsg5
+g43
+(g44
+(I0
+tp64
+g46
+tp65
+Rp66
+(I1
+(I3
+tp67
+g53
+I00
+S'\x00\x00\x00\x00\x00\x80\xd0?\x00\x00\x00\x00\x00@\xe2?\x00\x00\x00\x00\x00\xc0\xe8?'
+p68
+tp69
+bsg7
+g43
+(g44
+(I0
+tp70
+g46
+tp71
+Rp72
+(I1
+(I3
+tp73
+g53
+I00
+S'\x00\x00\x00\x00\x00 \xee?\x00\x00\x00\x00\x00@\xda?\x00\x00\x00\x00\x00\x00\xb3?'
+p74
+tp75
+bsg9
+g48
+sg10
+g43
+(g44
+(I0
+tp76
+g46
+tp77
+Rp78
+(I1
+(I3
+tp79
+g53
+I00
+S'\x00\x00\x00\x00\x00\xc0\xdc?\x00\x00\x00\x00\x00\xc0\xdc?\x00\x00\x00\x00\x00\xc0\xdc?'
+p80
+tp81
+bsg12
+g48
+sg13
+g72
+sg14
+g66
+sg22
+g66
+sg17
+g48
+sg18
+g66
+sg19
+g43
+(g44
+(I0
+tp82
+g46
+tp83
+Rp84
+(I1
+(I3
+tp85
+g53
+I00
+S'\x00\x00\x00\x00\x00\xa0\xe8?\x00\x00\x00\x00\x00\x00\xbb?\x00\x00\x00\x00\x00@\xe1?'
+p86
+tp87
+bsg20
+g43
+(g44
+(I0
+tp88
+g46
+tp89
+Rp90
+(I1
+(I3
+tp91
+g50
+(S'i8'
+p92
+I0
+I1
+tp93
+Rp94
+(I3
+S'<'
+p95
+NNNI-1
+I-1
+I0
+tp96
+bI00
+S'\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+p97
+tp98
+bsg15
+g84
+sg23
+g66
+sg24
+g66
+sg25
+g90
+sg26
+g72
+sg27
+g43
+(g44
+(I0
+tp99
+g46
+tp100
+Rp101
+(I1
+(I3
+tp102
+g53
+I00
+S'\x00\x00\x00\x00\x00\x00\xe0?\x00\x00\x00\x00\x00@\xdf?\x00\x00\x00\x00\x00@\xe7?'
+p103
+tp104
+bsg29
+g60
+sg30
+g66
+sg31
+g66
+sg32
+g90
+sg33
+g72
+sg34
+g101
+sg35
+g84
+sg36
+g101
+sg37
+g66
+sg38
+g66
+sg39
+g78
+sg40
+g101
+sg41
+g66
+s(dp105
+S'Percent of population that is Asian'
+p106
+S'lred'
+p107
+sS'Alcohol-impaired driving deaths Value'
+p108
+S'lblue'
+p109
+sS'Percent of population that is American Indian or Alaskan Native'
+p110
+g109
+sS'Income inequality Value'
+p111
+S'lgreen'
+p112
+sS'flu_pneumonia_death'
+p113
+S'lgrey'
+p114
+sS'Frequent physical distress Value'
+p115
+g112
+sS'Population that is not proficient in English Value'
+p116
+g109
+sS'Dentists Value'
+p117
+g107
+sS'diabetes_death'
+p118
+S'lpurple'
+p119
+sS'Access to exercise opportunities Value'
+p120
+g107
+sS'Primary care physicians Value'
+p121
+g107
+sS'hypertensive_heart_death'
+p122
+g119
+sS'Health care costs Value'
+p123
+g112
+sS'Physical inactivity Value'
+p124
+g112
+sS'Some college Value'
+p125
+S'lorange'
+p126
+sS'Percent of population that is female'
+p127
+g119
+sS'Adult smoking Value'
+p128
+g112
+sS'Food insecurity Value'
+p129
+g112
+sS'Drinking water violations Value'
+p130
+g109
+sS'Frequent mental distress Value'
+p131
+g112
+sVTot Active M.D.s Non-Fed & Fed
+p132
+g107
+sS'Poor mental health days Value'
+p133
+g112
+sS'Low birthweight Value'
+p134
+g112
+sS'Injury deaths Value'
+p135
+g112
+sS'Percent of population below 18 years of age'
+p136
+g119
+sVdensity
+p137
+g107
+sS'Food environment index Value'
+p138
+g126
+sS'alzheimers_death'
+p139
+g109
+sVBirths
+p140
+g119
+sS'Poor or fair health Value'
+p141
+g112
+sS'Children in single-parent households Value'
+p142
+g112
+sS'Median household income Value'
+p143
+g126
+sS'ischaemic_heart_death'
+p144
+g114
+sS'neoplasm_death'
+p145
+g126
+sS'life expectancy'
+p146
+g126
+sS'Residential segregation non-White/White Value'
+p147
+g119
+sS'Population estimate Value'
+p148
+g107
+sS'Poor physical health days Value'
+p149
+g112
+sS'Long commute - driving alone Value'
+p150
+g114
+sS'Preventable hospital stays Value'
+p151
+g112
+sS'Driving alone to work Value'
+p152
+g114
+sS'suicide_death'
+p153
+g109
+sS'Severe housing problems Value'
+p154
+g119
+sS'Social associations Value'
+p155
+g114
+sS'lower_respiratory_death'
+p156
+g114
+sS'Adult obesity Value'
+p157
+g112
+sS'Excessive drinking Value'
+p158
+g126
+sS'Uninsured Value'
+p159
+g112
+sS'heart_death'
+p160
+g114
+sS'Percent of population aged 65 years and older'
+p161
+g114
+sS'Insufficient sleep Value'
+p162
+g112
+sS'cerebrovascular_death'
+p163
+g109
+sS'Diabetic screening Value'
+p164
+g126
+sS'Percent of population that is Hispanic'
+p165
+g109
+sS'Sexually transmitted infections Value'
+p166
+g119
+sS'Diabetes Value'
+p167
+g112
+sS'Children in poverty Value'
+p168
+g112
+sV3-Yr Homicides&Legal Interventn
+p169
+g112
+sS'Percent of population that is non-Hispanic White'
+p170
+g114
+sS'Premature death Value'
+p171
+g112
+sS'Premature age-adjusted mortality Value'
+p172
+g112
+sS'Unemployment Value'
+p173
+g112
+sS'Percent of population that is non-Hispanic African American'
+p174
+g119
+sS'Mammography screening Value'
+p175
+g126
+sS'Percent of population that is Native Hawaiian or Other Pacific Islander'
+p176
+g109
+sS'Teen births Value'
+p177
+g112
+sS'Limited access to healthy foods Value'
+p178
+g119
+sS'Motor vehicle crash deaths Value'
+p179
+g112
+sS'Mental health providers Value'
+p180
+g107
+s(dp181
+g106
+g43
+(g44
+(I0
+tp182
+g46
+tp183
+Rp184
+(I1
+(I3
+tp185
+g53
+I00
+S'\x00\x00\x00\x00\x00\x80\xef?\x00\x00\x00\x00\x00@\xe2?\x00\x00\x00\x00\x00\x80\xdc?'
+p186
+tp187
+bsg108
+g43
+(g44
+(I0
+tp188
+g46
+tp189
+Rp190
+(I1
+(I3
+tp191
+g53
+I00
+S'\x00\x00\x00\x00\x00\xc0\xe3?\x00\x00\x00\x00\x00@\xe9?\x00\x00\x00\x00\x00 \xec?'
+p192
+tp193
+bsg110
+g190
+sg111
+g43
+(g44
+(I0
+tp194
+g46
+tp195
+Rp196
+(I1
+(I3
+tp197
+g53
+I00
+S'\x00\x00\x00\x00\x00 \xe4?\x00\x00\x00\x00\x00 \xeb?\x00\x00\x00\x00\x00`\xe3?'
+p198
+tp199
+bsg113
+g43
+(g44
+(I0
+tp200
+g46
+tp201
+Rp202
+(I1
+(I3
+tp203
+g53
+I00
+S'\x00\x00\x00\x00\x00\xa0\xe7?\x00\x00\x00\x00\x00\xa0\xe7?\x00\x00\x00\x00\x00\xa0\xe7?'
+p204
+tp205
+bsg115
+g196
+sg116
+g190
+sg117
+g184
+sg118
+g43
+(g44
+(I0
+tp206
+g46
+tp207
+Rp208
+(I1
+(I3
+tp209
+g53
+I00
+S'\x00\x00\x00\x00\x00\x80\xe7?\x00\x00\x00\x00\x00\xa0\xe7?\x00\x00\x00\x00\x00\x80\xeb?'
+p210
+tp211
+bsg120
+g184
+sg121
+g184
+sg122
+g208
+sg123
+g196
+sg124
+g196
+sg125
+g43
+(g44
+(I0
+tp212
+g46
+tp213
+Rp214
+(I1
+(I3
+tp215
+g53
+I00
+S'\x00\x00\x00\x00\x00\xa0\xef?\x00\x00\x00\x00\x00\xc0\xe5?\x00\x00\x00\x00\x00\xc0\xda?'
+p216
+tp217
+bsg127
+g208
+sg128
+g196
+sg129
+g196
+sg130
+g190
+sg131
+g196
+sg132
+g184
+sg133
+g196
+sg134
+g196
+sg135
+g196
+sg136
+g208
+sg137
+g184
+sg138
+g214
+sg139
+g190
+sg140
+g208
+sg141
+g196
+sg142
+g196
+sg143
+g214
+sg144
+g202
+sg145
+g214
+sg146
+g214
+sg147
+g208
+sg148
+g184
+sg149
+g196
+sg150
+g202
+sg151
+g196
+sg152
+g202
+sg153
+g190
+sg154
+g208
+sg155
+g202
+sg156
+g202
+sg157
+g196
+sg158
+g214
+sg159
+g196
+sg160
+g202
+sg161
+g202
+sg162
+g196
+sg163
+g190
+sg164
+g214
+sg165
+g190
+sg166
+g208
+sg167
+g196
+sg168
+g196
+sg169
+g196
+sg170
+g202
+sg171
+g196
+sg172
+g196
+sg173
+g196
+sg174
+g208
+sg175
+g214
+sg176
+g190
+sg177
+g196
+sg178
+g208
+sg179
+g196
+sg180
+g184
+s(dp218
+S'lgreen'
+p219
+g196
+sg28
+g101
+sS'ylgnbu-6-seq-3'
+p220
+g90
+sg6
+g66
+sg2
+g48
+sS'lgrey'
+p221
+g202
+sS'lpurple'
+p222
+g208
+sg11
+g78
+sS'lblue'
+p223
+g190
+sS'lred'
+p224
+g184
+sg4
+g60
+sS'rdpu-3-seq-3'
+p225
+g84
+sS'lorange'
+p226
+g214
+sg8
+g72
+stp227
+.

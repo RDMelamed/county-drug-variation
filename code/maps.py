@@ -48,7 +48,6 @@ def mplmap2(m, empire_list, value, scalarMap, state_level=False, crange=None,rou
     patches = []
     (empire, rectE, rectW, rectN, rectS) = empire_list
     value = value[~pd.isnull(value)]
-    print 'states?' , state_level
     for info, shape in zip(m.counties_info, m.counties):
 
         fip = info['STATE'] + info['COUNTY']

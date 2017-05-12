@@ -1,0 +1,2 @@
+def mystrip(i):
+    return i.replace('Agents','').replace('Value','').replace('Percent of population','').replace('that is ','').replace('brandred','brand').replace('startdate_norm','release_date').replace('nadac','nadac ($)').strip().replace('otcred','OTC').replace('2010','').replace('2011','').replace('Female','F').replace('Male','M').replace('prevalence','').replace('(years)','').replace('(%)','').replace(', *','').replace('Native Hawaiian or Other Pacific Islander','Hawaiian/Pacific Islander').replace('Drugs','').replace('Drug','').replace('Misc','')
