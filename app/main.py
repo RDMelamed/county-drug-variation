@@ -33,7 +33,6 @@ import copy
 from os.path import dirname, join
 import pickle
 import components
-print 'step ONE'
 dat = pd.read_pickle('data/pca_results_bokeh.pkl') #svd_dat.pkl') #cc100xscores.pkl') #county_cat.pkl')
 
 outers = pickle.load(open('data/outer_counties.pkl'))
@@ -73,8 +72,8 @@ def update(addr, olddim, new):
     #countysourceData = countysource.data.copy()
     #countysourceData['value'] = dat['xscores'][curdim]
 
-    print 'yep... changed to ' + curdim
-    print '--'.join(countysource.data.keys())
+    #print 'yep... changed to ' + curdim
+    #print '--'.join(countysource.data.keys())
     global VALLIST
     VALLIST = list(dat['xscores'][new])
     countysource.data['value'] = VALLIST
@@ -83,12 +82,12 @@ def update(addr, olddim, new):
     #= {k:(v if not k=='value' else list(dat['xscores'][curdim]))
     #                            for k,v in countysource.data.items()} #countysourceData
 
-    print 'for ' + new + ' SHOULD BE now:' , countysource.data['value'][:5]
-    print countysource.data['value'][:5]
+    #print 'for ' + new + ' SHOULD BE now:' , countysource.data['value'][:5]
+    #print countysource.data['value'][:5]
     pusa.title.text = curdim + ' projection'
     #return
 
-    print 'changed title.. ' + new 
+    #print 'changed title.. ' + new 
     #pdat, ldat = get_cor_datas(new, dat)
     #corpoints.data = pdat
     #corlines.data = ldat
