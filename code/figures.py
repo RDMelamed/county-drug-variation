@@ -354,3 +354,78 @@ def price_cor_cor(drugs,dim, svddfilt, fda_nadac, tomap, dsn):
     axbottom.set_xticks(range(len(drugs)))
     axbottom.set_xticklabels(list(brands.index),rotation=-10,ha='left')
     return f
+
+import matplotlib.colors as colors
+import matplotlib.cm as cmx
+
+def dimrange(ks, drugbutt, butt2c, fda_nadac, dsn, scperc):
+    f, ax = plt.subplots(len(ks) + 1,len(drugbutt),tight_layout=True,figsize=(2.2*len(drugbutt),2*len(ks) + 2))
+    if len(drugbutt)==1:
+        ax = [[i] for i in ax]
+    brandsel = 'nadac' #brandred' #
+    for (i, v) in enumerate(ks):
+        #ax[i][0].set_ylabel(ks[v]) #text(-.24,0,v,va='center',rotation=90)
+        for axi, butt in zip(*tuple((ax[i], drugbutt.keys()))):
+            drugs = drugbutt[butt]
+            rangeplots(scperc[v][0], scperc[v][1], butt, axi, drugbutt, dsn, fda_nadac, dorank=False,brand=brandsel)
+
+            axi.set_ylim(-1.5,1.5)
+            if brandsel=='nadac':
+                axi.set_xlim(.015,5.50)
+        axi.legend(ks[v],bbox_to_anchor=(1.1, 1.05), loc=2,frameon=False)
+
+    for (i, k) in enumerate(drugbutt.keys()):
+        ax[0][i].set_title(k)     
+
+
+    f.text(.5,0,('fraction brand' if brandsel == 'brandred' else 'NADAC ($)'),va='top',ha='center',fontsize=12)
+    epcs = []
+    for butt, b2c in butt2c.items():
+        epcs += sorted(set(chain.from_iterable(b2c.values())) - set(epcs) )
+    #epcs = sorted(epcs) + sorted(set(chain.from_iterable(calcd2c.values())) - epcs)
+    cmap = plt.get_cmap('Dark2')
+    cNorm  = colors.Normalize(vmin=0, vmax=len(epcs))
+    scalarMap = cmx.ScalarMappable(norm=cNorm, cmap=cmap)
+
+
+    #            [i.split(',') 
+    #                                       for i in list(fda_nadac.loc[drugs,'PHARM_CLASSES_EPC'])])))
+    for axb, butt in zip(*tuple((ax[len(ks)], drugbutt.keys()))):
+        last_xval=-1
+        drugs = drugbutt[butt]
+        buttd2c = butt2c[butt]
+        bv = fda_nadac.loc[drugs,brandsel].sort_values()
+        for d in bv.index:
+            xval = bv.loc[d]
+            if last_xval + .02 >= xval:
+                xval = xval + .02
+                if butt=='calcium channel blockers':
+                    print 'adjusting--',d, bv.loc[d], xval, last_xval
+            last_xval = xval
+            #if butt=='calcium channel blockers':
+            #    print d, bv.loc[d], xval
+            for cl in buttd2c[d]:
+                y = epcs.index(cl)
+                #if cl == 'Aldosterone Antagonist:EPC':
+                #    print d, y
+                #axb.plot([log(xval)]*2,[y,y+.75],linewidth=2,c=scalarMap.to_rgba(y))
+                axb.plot([np.log(xval)]*2,[y,y+.75],linewidth=2,c=scalarMap.to_rgba(y))
+        axb.set_yticks([])    
+        axb.set_xticks([])
+        axb.spines['right'].set_visible(False)
+        axb.spines['left'].set_visible(False)
+        axb.spines['top'].set_visible(False)
+        axb.spines['bottom'].set_visible(False)
+        axb.set_xlim(ax[0][0].get_xlim())
+        axb.set_ylim(0,len(epcs))
+        if brandsel=='nadac':
+            #axb.set_xscale('log')
+            axb.set_xlim(np.log(.015), np.log(5.50))
+            #axb.set_xlim(.02,5.50)
+        
+
+    for i in range(len(epcs)):
+        axb.text(axb.get_xlim()[1]+.1,i+.5, epcs[i].replace(':EPC',''),va='center',color=scalarMap.to_rgba(i))
+    ax[len(ks)][0].set_ylabel('pharmacologic class')
+    return f
+

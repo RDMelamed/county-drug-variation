@@ -69,7 +69,7 @@ def clust2way(class_cor,colormap_string, cmax = 1, cmin=None, cluster_columns = 
     axmatrix.set_yticks(range(class_cor.shape[0]))
     axmatrix.set_xticklabels(class_cor.iloc[:,xidx].columns,rotation=90,fontsize=8)
     axmatrix.set_yticklabels(class_cor.iloc[yidx,:].index,fontsize=8) #.iloc[yidx,:]
-    
+    '''
 
     axcbar = fig.add_axes([0.85 if not no_row_dendrogram else .65 ,0.05,0.1,0.6])
     axcbar.set_xticks([])
@@ -77,6 +77,7 @@ def clust2way(class_cor,colormap_string, cmax = 1, cmin=None, cluster_columns = 
     #axcbar.set_axes([])
     axcbar.set_axis_off()
     cbar = fig.colorbar(cax, ax=axcbar,ticks=[round(i,2) for i in np.linspace(cmin,cmax,7)]) #rientation='horizontal',
+    '''
     #tk = cbar.get_ticks()
     #cbar.set_ticklabels(10**
 

@@ -24,7 +24,7 @@ def load_maps():
     return m, emp #
     
 
-def mplmap(m, empire_list, value, symmetric=True,topq=100, state_level=False,rounddig=0):
+def mplmap(m, empire_list, value, symmetric=True,topq=100, state_level=False,rounddig=0,fa = (None,None), plot_empire=True,no_colorbar = False, crange=None ):
     (empire, rectE, rectW, rectN, rectS) = empire_list
     value = value[~pd.isnull(value)]
 
@@ -39,11 +39,15 @@ def mplmap(m, empire_list, value, symmetric=True,topq=100, state_level=False,rou
         crange = (value.min(), np.percentile(value,topq))
         
     scalarMap = cmx.ScalarMappable(norm=cNorm, cmap=cmap)
-    return mplmap2(m, empire_list, value,scalarMap, state_level=state_level, crange=crange, rounddig=rounddig)
+    return mplmap2(m, empire_list, value,scalarMap, state_level=state_level, crange=crange,
+                       rounddig=rounddig,fa=fa, plot_empire=plot_empire,no_colorbar=no_colorbar)
 
 
-def mplmap2(m, empire_list, value, scalarMap, state_level=False, crange=None,rounddig=0):
-    f, ax = plt.subplots(1,figsize=(12,6)) #gca() # get current axes instance
+def mplmap2(m, empire_list, value, scalarMap, state_level=False, crange=None,rounddig=0 ,
+                fa = (None,None), plot_empire=True,no_colorbar = False):
+    f, ax = fa
+    if f is None:
+        f, ax = plt.subplots(1,figsize=(12,6)) #gca() # get current axes instance
     ncou = 0
     patches = []
     (empire, rectE, rectW, rectN, rectS) = empire_list
@@ -56,6 +60,9 @@ def mplmap2(m, empire_list, value, scalarMap, state_level=False, crange=None,rou
         cou = int(info['COUNTY'])
         cname = '%02d%03d' % (sta,cou)
         if fip in empire:
+            if plot_empire == False:
+                continue
+
             shape = empire[fip]
         #color = #rgb2hex(colors[cname])
         lookup_by = fip
@@ -78,25 +85,27 @@ def mplmap2(m, empire_list, value, scalarMap, state_level=False, crange=None,rou
         
     path = Path([(rectE,rectS), (rectE,rectN), (rectW, rectN), (rectW, rectS),(0,0)], codes)
     '''
-    codes = [Path.MOVETO,
-             Path.LINETO,
-             Path.LINETO,
-             Path.LINETO,
-             Path.LINETO,
-             Path.LINETO,
-             Path.LINETO,
-             Path.LINETO,
-             Path.CLOSEPOLY,
-             ]
+    if plot_empire:
 
-    mid = np.mean([rectN, rectS])
-    path = Path([(rectE,mid),(rectE,rectS), (rectW,rectS), (rectW, mid),
-                (rectE, mid),(rectE,rectN),(rectW,rectN),(rectW,mid),(0,0)], codes)
-    
-    ax.add_patch(
-        patches.PathPatch(path,
-                          edgecolor='black', facecolor='none')
-    )        
+        codes = [Path.MOVETO,
+                 Path.LINETO,
+                 Path.LINETO,
+                 Path.LINETO,
+                 Path.LINETO,
+                 Path.LINETO,
+                 Path.LINETO,
+                 Path.LINETO,
+                 Path.CLOSEPOLY,
+                 ]
+
+        mid = np.mean([rectN, rectS])
+        path = Path([(rectE,mid),(rectE,rectS), (rectW,rectS), (rectW, mid),
+                    (rectE, mid),(rectE,rectN),(rectW,rectN),(rectW,mid),(0,0)], codes)
+
+        ax.add_patch(
+            patches.PathPatch(path,
+                              edgecolor='black', facecolor='none')
+        )        
     # cycle through state names, color each one.
     ax.relim()
     ax.set_axis_off()
@@ -105,12 +114,15 @@ def mplmap2(m, empire_list, value, scalarMap, state_level=False, crange=None,rou
     scalarMap._A = []
     if not crange:
         crange = [value.min(), value.max()]
+    
     cbticks = [round(i,rounddig) for i in np.linspace(crange[0],crange[1],5)]
-    cb = f.colorbar(scalarMap, shrink=.25,
-                   ticks=cbticks)
-    #[round(i,2) for i in np.linspace(crange[0],crange[1],7)])
-    #print rich_string_wrap(num2comma2(ncou),'r',1,'k',0)
-    #print cnames
-    #cb1 = plt.colorbar(sm, orientation='horizontal',shrink=0.8)
-    #cb1.set_label('Severity (deviation from the country mean)')
-    return f,ax, cb, cbticks
+    bbox = ax.get_position()
+    axcb, cbticks = [None, None]
+    if not no_colorbar:
+        axcb = f.add_axes([bbox.xmax,bbox.ymin + .25*(bbox.ymax-bbox.ymin),.01*bbox.width,.25*bbox.height])
+    	cbticks = [round(i,rounddig) for i in np.linspace(crange[0],crange[1],5)]
+    
+        cb = f.colorbar(scalarMap,  #shrink=.25,
+                    ticks=cbticks, cax= axcb)
+    
+    return f,ax, axcb, cbticks
