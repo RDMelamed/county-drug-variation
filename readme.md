@@ -1,4 +1,4 @@
-Here is a repository for exploring the results of the preprint at [link to come]().  The main parts are:
+Here is a repository for exploring the results of the [preprint](http://www.biorxiv.org/content/early/2017/06/30/156281).  The main parts are:
 
 - the notebook [figures.ipynb](figures.ipynb), which will recreate all the figures in the paper.
 - A [web site](http://54.211.36.187/app), which will make more sense after you either read the paper or look at the notebook below...
